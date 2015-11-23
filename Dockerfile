@@ -23,18 +23,18 @@ RUN \
     mkdir -p /srv/webapp/.buildout/eggs /srv/webapp/.buildout/downloads /srv/webapp/.buildout/extends
 
 
+COPY ./buildout /srv/webapp/buildout
 
-WORKDIR /srv/webapp
 
-RUN chown webapp:webapp /srv/webapp && \
+RUN chown webapp:webapp -R /srv/webapp && \
     chmod ugo+rX /srv/webapp
 
 
-COPY ./buildout /srv/webapp/buildout
 WORKDIR /srv/webapp/buildout
 
+
 USER webapp
-RUN python2.7 bootstrap.py && make buildout
+RUN python2.7 bootstrap.py && bin/buildout -Nvt 2
 
 
-CMD ["/srv/webapp/buildot/bin/intance", "fg"]
+CMD ["/srv/webapp/buildot/bin/instance", "fg"]
