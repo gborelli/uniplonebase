@@ -20,7 +20,9 @@ RUN apt-get update && \
 # Add webapp user
 RUN \
     useradd -u 1000 --home-dir=/srv/webapp --shell=/usr/sbin/nologin webapp && \
-    mkdir /srv/webapp
+    mkdir -p /srv/webapp/.buildout/eggs /srv/webapp/.buildout/downloads /srv/webapp/.buildout/extends
+
+
 
 WORKDIR /srv/webapp
 
