@@ -34,7 +34,5 @@ WORKDIR /srv/webapp/buildout
 
 
 USER webapp
-RUN python2.7 bootstrap.py && bin/buildout -Nvt 2
-
-
+RUN python2.7 bootstrap.py && bin/buildout -Nv
 CMD ["/srv/webapp/buildot/bin/instance", "fg"]
