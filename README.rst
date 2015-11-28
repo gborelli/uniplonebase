@@ -1,7 +1,8 @@
 # uniplonebase
 
 test uno due tre
-::
+.. code-block:: python
+
 
         from z3c.form import form, field
         from collective.z3cform.colorpicker import Color
